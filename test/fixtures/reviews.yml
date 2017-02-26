@@ -1,0 +1,23 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  user_id: 1
+  brewer_name: MyString
+  beer_name: MyString
+  beer_type: MyString
+  rating: 9.99
+  abv: 9.99
+  review: MyText
+  brewer_website: MyString
+  private: false
+
+two:
+  user_id: 1
+  brewer_name: MyString
+  beer_name: MyString
+  beer_type: MyString
+  rating: 9.99
+  abv: 9.99
+  review: MyText
+  brewer_website: MyString
+  private: false

@@ -1,0 +1,18 @@
+<h1>Booze Review</h1>
+
+<% @reviews.each_slice(3) do |three_reviews| %>
+  <div class="row">
+    <% three_reviews.each do |review| %>
+      <div class="col-md-4">
+        <div class="well">
+          <p><a href="/reviews/<%= review.id %>"><%= review.beer_name %></a> ABV: <%= review.abv %> Rating: <%= review.rating %><br> <%= review.beer_type %> </p>
+          <p><%= review.brewer_name %></p>
+          <p><%= review.review %></p>
+          
+          <br>
+          <br>
+        </div>
+      </div>
+    <% end %>
+  </div>
+<% end %>
