@@ -14,7 +14,20 @@ class ReviewsController < ApplicationController
   end
 
   def create
-    
+    review = Review.create(
+      brewer_name: params[:brewer_name],
+      beer_name: params[:beer_name],
+      beer_type: params[:beer_type],
+      rating: params[:rating],
+      abv: params[:abv],
+      review: params[:review],
+      brewer_website: params[:brewer_website],
+      personal: params[:personal],
+      user_id: current_user.id
+
+    )
+
+    redirect_to :root
   end
 
   def edit
