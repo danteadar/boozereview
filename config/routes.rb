@@ -2,13 +2,13 @@ Rails.application.routes.draw do
 
   get 'users/show'
 
-  get 'signup/new' => 'users#new'
+  get 'signup/' => 'users#new'
 
   post 'users/' => 'users#create'
 
   get 'users/edit'
 
-  get 'users/update'
+  patch 'users/update'
 
   get 'users/destroy'
 

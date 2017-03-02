@@ -16,6 +16,6 @@
     abv: Faker::Beer.alcohol,
     review: Faker::Hipster.paragraph,
     brewer_website: Faker::Internet.url,
-    private: false
+    personal: false
     )
 end

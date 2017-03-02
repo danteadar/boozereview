@@ -31,11 +31,23 @@ class ReviewsController < ApplicationController
   end
 
   def edit
-    
+    @review = Review.find_by(id: params[:id])
   end
 
   def update
-    
+    review = Review.find_by(id: params[:id])
+    review.update(
+      brewer_name: params[:brewer_name],
+      beer_name: params[:beer_name],
+      beer_type: params[:beer_type],
+      rating: params[:rating],
+      abv: params[:abv],
+      review: params[:review],
+      brewer_website: params[:brewer_website],
+      personal: params[:personal]
+    )
+    flash[:success] = "Review successfully updated!"
+    redirect_to "/"
   end
 
   def destroy
