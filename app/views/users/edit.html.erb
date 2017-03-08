@@ -1,0 +1,21 @@
+<h1>Edit Info:</h1>
+
+<%= form_tag "/users/#{current_user.id}/", method: :patch do  %>
+  <div>
+    <%= label_tag :first_name %>
+    <%= text_field_tag :first_name, current_user.first_name %>
+  </div>
+  <div>
+    <%= label_tag :last_name %>
+    <%= text_field_tag :last_name, current_user.last_name %>
+  </div>
+  <div>
+    <%= label_tag :email %>
+    <%= email_field_tag :email, current_user.email %>
+  </div>
+  <div>
+    <%= label_tag :age %>
+    <%= number_field_tag :age, current_user.age %>
+  </div>
+  <%= submit_tag "Submit" %>
+<% end %>

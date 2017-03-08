@@ -9,7 +9,7 @@
           <p><%= review.brewer_name %></p>
           <p><%= review.review %></p>
           <p>- Reviewed by: <%= review.user.user_name %></p>
-          <% if review.user_id == current_user.id %>
+          <% if current_user && review.user_id == current_user.id %>
           <a href="/reviews/<%= review.id %>/edit/"><button id ="btn-primary">Edit</button></a>
           <% end %>
           
@@ -20,3 +20,4 @@
     <% end %>
   </div>
 <% end %>
+
