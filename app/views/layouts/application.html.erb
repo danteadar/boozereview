@@ -19,7 +19,7 @@
     </ul>
     <ul class="nav navbar-nav navbar-right">
       <% if current_user %>
-          <li><a href="/users/<%= current_user.id %>/edit/"><%= current_user.user_name %> </a></li>
+          <li>Hello: <a href="/users/<%= current_user.id %>/edit/"><%= current_user.user_name %> </a></li>
           <li><a href="/logout">Logout</a></li>
         <% else %>
           <li><a href="/login">Login</a></li>

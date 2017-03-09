@@ -19,5 +19,18 @@
       </div>
     <% end %>
   </div>
+
+
+    <% @beers['data'].each do |beer| %>
+      <div>
+        <p><%= beer['id'] %> </p>
+        <p><%= beer['name'] %> </p>
+        <% end %>
+        
+        <br>
+        <br>
+      </div>
+    
+  
 <% end %>
 
