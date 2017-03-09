@@ -1,5 +1,10 @@
 <h1>Booze Review</h1>
 
+
+<div ng-app="app">
+  {{ 1 + 1 }}
+</div>
+
 <% @reviews.each_slice(3) do |three_reviews| %>
   <div class="row">
     <% three_reviews.each do |review| %>
@@ -20,6 +25,7 @@
     <% end %>
   </div>
 
+  Filter: <input ng-model="nameFilter" list="names">
 
     <% @beers['data'].each do |beer| %>
       <div>
