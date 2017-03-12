@@ -2,7 +2,14 @@ class ReviewsController < ApplicationController
 
   def index
     @reviews = Review.all
-    @beers = Unirest.get("http://api.brewerydb.com/v2/beers/?key=#{ENV['BREWERYDB_API_KEY']}").body
+    @beers = Unirest.get("http://api.brewerydb.com/v2/beers/?key=#{ENV['BREWERYDB_API_KEY']}&withBreweries=Y").body
+    puts "***************"
+    puts "***************"
+    puts @beers
+    puts "***************"
+    puts "***************"
+
+    # angular people app
 
      # binding.pry
   end

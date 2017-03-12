@@ -28,9 +28,10 @@
   Filter: <input ng-model="nameFilter" list="names">
 
     <% @beers['data'].each do |beer| %>
+    <% brewery = beer['breweries'] %>
       <div>
-        <p><%= beer['id'] %> </p>
         <p><%= beer['name'] %> </p>
+        <p><%= brewery[0]['name'] %> </p>
         <% end %>
         
         <br>
