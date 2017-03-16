@@ -1,5 +1,7 @@
 <h1>Booze Review</h1>
 
+Filter: <input ng-model="nameFilter" list="names">
+
 <div ng-app="app">
   <div ng-controller="reviewsCtrl" ng-init="setup()">
     <div ng-repeat="beer in beers">
@@ -28,7 +30,7 @@
     <% end %>
   </div>
 
-  Filter: <input ng-model="nameFilter" list="names">
+  
 
     <% @beers['data'].each do |beer| %>
     <% brewery = beer['breweries'] %>
