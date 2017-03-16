@@ -3,11 +3,11 @@
 <div ng-app="app">
   <div ng-controller="reviewsCtrl" ng-init="setup()">
     <div ng-repeat="beer in beers">
-      {{ beer }}
+      <p>{{ beer.name }}</p>
     </div>
   </div>
 </div>
-
+ <!-- 
 <% @reviews.each_slice(3) do |three_reviews| %>
   <div class="row">
     <% three_reviews.each do |review| %>
@@ -42,5 +42,5 @@
       </div>
     
   
-<% end %>
+<% end %> --> 
 
