@@ -1,18 +1,17 @@
 Rails.application.routes.draw do
 
-  get 'users/show'
+
+  get 'beers/index' => 'beers#index'
+  get 'beers/new' => 'beers#new'
+  post 'beers/create' => 'beers#create'
+  get 'beers/show/:id' => 'beers#show'
 
   get 'signup/' => 'users#new'
-
   post 'users/' => 'users#create'
-
   get 'users/:id/edit' => 'users#edit'
-
   patch 'users/:id' => 'users#update'
 
-  get 'users/destroy'
-
-  root to: "reviews#index"
+  root to: "beers#index"
   resources :reviews
 
   get "/login" => "sessions#new"

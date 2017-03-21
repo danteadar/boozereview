@@ -2,7 +2,7 @@ class ReviewsController < ApplicationController
 
   def index
     @reviews = Review.all
-    @beers = Unirest.get("http://api.brewerydb.com/v2/beers/?key=#{ENV['BREWERYDB_API_KEY']}&withBreweries=Y").body
+    # @beers = Unirest.get("http://api.brewerydb.com/v2/beers/?key=#{ENV['BREWERYDB_API_KEY']}&withBreweries=Y").body
     
 
     # angular people app
@@ -21,15 +21,11 @@ class ReviewsController < ApplicationController
 
   def create
     review = Review.create(
-      brewer_name: params[:brewer_name],
-      beer_name: params[:beer_name],
-      beer_type: params[:beer_type],
       rating: params[:rating],
-      abv: params[:abv],
       review: params[:review],
-      brewer_website: params[:brewer_website],
       personal: params[:personal],
-      user_id: current_user.id
+      user_id: current_user.id,
+      beer_id: current_beer.id
 
     )
 
@@ -43,17 +39,12 @@ class ReviewsController < ApplicationController
   def update
     review = Review.find_by(id: params[:id])
     review.update(
-      brewer_name: params[:brewer_name],
-      beer_name: params[:beer_name],
-      beer_type: params[:beer_type],
       rating: params[:rating],
-      abv: params[:abv],
       review: params[:review],
-      brewer_website: params[:brewer_website],
       personal: params[:personal]
     )
     flash[:success] = "Review successfully updated!"
-    redirect_to "/"
+    redirect_to "/reviews"
   end
 
   def destroy

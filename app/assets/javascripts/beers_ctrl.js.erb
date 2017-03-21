@@ -1,0 +1,34 @@
+(function() {
+  "use strict";
+
+  angular.module("app").controller("beersCtrl", function($scope, $http) {
+    // $scope.message = "hello world";
+
+    $scope.setup = function() {
+      // console.log("cat");
+      $http.get("http://api.brewerydb.com/v2/beers/?key="+"<%=ENV['BREWERYDB_API_KEY']%>"+"&withBreweries=Y").then(function(response) {
+        $scope.beers = response.data.data;
+        $scope.beerCount = $scope.beers.length
+        console.log(response.data.data);
+
+      });
+    };
+
+    $scope.apiSearch = function(keyword) {
+      // console.log("cat");  lookup ng-if cat example
+      $http.get("http://api.brewerydb.com/v2/beers/?key="+"<%=ENV['BREWERYDB_API_KEY']%>"+"&withBreweries=Y"+"&name=*"+keyword+"*").then(function(response) {
+        $scope.beers = response.data.data;
+        $scope.beerCount = $scope.beers.length
+      });
+    };
+
+    $scope.toggleAll = function(beer){
+      beer.allVisible = !beer.allVisible;
+    };
+
+
+
+
+  }); 
+}());
+

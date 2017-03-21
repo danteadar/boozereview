@@ -1,25 +1,10 @@
 <h1>New Beer Review:</h1>
 
 <%= form_tag "/reviews/", method: :post do  %>
-  <div>
-    <%= label_tag :brewer_name %>
-    <%= text_field_tag :brewer_name %>
-  </div>
-  <div>
-    <%= label_tag :beer_name %>
-    <%= text_field_tag :beer_name %>
-  </div>
-  <div>
-    <%= label_tag :beer_type %>
-    <%= text_field_tag :beer_type %>
-  </div>
+
   <div>
     <%= label_tag :rating %>
     <%= number_field_tag :rating %>
-  </div>
-  <div>
-    <%= label_tag :abv %>
-    <%= number_field_tag :abv %>
   </div>
   <div>
     <%= label_tag :review %>
@@ -29,11 +14,6 @@
     <%= label_tag :personal %>
     <%= check_box_tag :personal, true, "personal" %>
   </div>
-  
-  <div>
-    <%= label_tag :brewer_website %>
-    <%= text_field_tag :brewer_website %>
-  </div>
-  
+
   <%= submit_tag "Submit" %>
 <% end %>
