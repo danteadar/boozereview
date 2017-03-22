@@ -1,25 +1,15 @@
 <h1>All Reviews:</h1>
 
-<% @reviews.each_slice(3) do |three_reviews| %>
-  <div class="row">
-    <% three_reviews.each do |review| %>
-      <div class="col-md-4">
-        <div class="well">
-        
-          <p><a href="/reviews/<%= review.id %>"></a> Rating: <%= review.rating %>   <br> 
-          <p><%= review.review %></p>
-          <p>- Reviewed by: <%= review.user.user_name %></p>
-          <% if current_user && review.user_id == current_user.id %>
-          <a href="/reviews/<%= review.id %>/edit/"><button id ="btn-primary">Edit</button></a>
-          <% end %>
-          
-          <br>
-          <br>
-        </div>
-      </div>
+<div ng-app="app">
+  <div ng-controller="reviewsCtrl">
+    <% @reviews.each do |review| %>
+      <% beer = review.beer %>
+      Beer: <%= beer['name'] %> - Rating: <%= review.rating %><br>
+      Abv: <%= beer['abv'] %> <br>
+      Ibu: <%= beer['ibu'] %> <br>
+      Description: <%= beer['description'] %> <br>
+      Review: <%= review.review %> <br> <br> <br>
     <% end %>
   </div>
-
+</div>
   
-
-
