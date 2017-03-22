@@ -2,7 +2,7 @@ class ReviewsController < ApplicationController
 
   def index
     @reviews = Review.all
-    # @beers = Unirest.get("http://api.brewerydb.com/v2/beers/?key=#{ENV['BREWERYDB_API_KEY']}&withBreweries=Y").body
+    @beers = Unirest.get("http://api.brewerydb.com/v2/beers/?key=#{ENV['BREWERYDB_API_KEY']}&withBreweries=Y").body
     
 
     # angular people app
@@ -25,7 +25,7 @@ class ReviewsController < ApplicationController
       review: params[:review],
       personal: params[:personal],
       user_id: current_user.id,
-      beer_id: current_beer.id
+      api_beer_id: params[:api_beer_id]
 
     )
 

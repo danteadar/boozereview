@@ -22,8 +22,17 @@
       });
     };
 
-    $scope.toggleAll = function(beer){
+    $scope.toggleAll = function(beer) {
       beer.allVisible = !beer.allVisible;
+    };
+
+    $scope.findByApiId = function(apiBeerId) {
+      console.log(apiBeerId);
+      $http.get("http://api.brewerydb.com/v2/beer/"+apiBeerId+"/?key="+"<%=ENV['BREWERYDB_API_KEY']%>&withBreweries=Y").then(function(response) {
+        $scope.beerReviewed = response.data.data;
+        console.log(response.data.data);
+
+      });
     };
 
 

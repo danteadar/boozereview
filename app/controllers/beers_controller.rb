@@ -14,7 +14,8 @@ class BeersController < ApplicationController
       glass: params[:glass],
       brewery: params[:brewery],
       brewery_url: params[:brewery_url],
-      ibu: params[:ibu]
+      ibu: params[:ibu],
+      api_beer_id: params[:api_beer_id]
       )
   end
 

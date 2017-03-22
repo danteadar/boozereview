@@ -5,7 +5,8 @@
     <% three_reviews.each do |review| %>
       <div class="col-md-4">
         <div class="well">
-          <p><a href="/reviews/<%= review.id %>"><%= review.beer.name %></a> ABV: <%= review.beer.abv %> Rating: <%= review.rating %>   <br> 
+        
+          <p><a href="/reviews/<%= review.id %>"></a> Rating: <%= review.rating %>   <br> 
           <p><%= review.review %></p>
           <p>- Reviewed by: <%= review.user.user_name %></p>
           <% if current_user && review.user_id == current_user.id %>
@@ -20,19 +21,5 @@
   </div>
 
   
- <!-- 
 
-    <% @beers['data'].each do |beer| %>
-    <% brewery = beer['breweries'] %>
-      <div>
-        <p><%= beer['name'] %> </p>
-        <p><%= beer['breweries'][0]['name'] %> </p>
-        <% end %>
-        
-        <br>
-        <br>
-      </div>
-    
-  
-<% end %> --> 
 
