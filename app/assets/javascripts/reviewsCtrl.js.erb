@@ -8,7 +8,7 @@
       // console.log("cat");
       $http.get("http://api.brewerydb.com/v2/beers/?key="+"<%=ENV['BREWERYDB_API_KEY']%>"+"&withBreweries=Y").then(function(response) {
         $scope.beers = response.data.data;
-        $scope.beerCount = $scope.beers.length
+        $scope.beerCount = $scope.beers.length;
         console.log(response.data.data);
 
       });

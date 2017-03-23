@@ -11,8 +11,12 @@ class ReviewsController < ApplicationController
   end
 
   def show
-    review_id = params[:id]
-    @review = Review.find_by(id: review_id)
+    @reviews = Review.where(api_beer_id: @beer.id)
+  end
+
+  def average_rating (reviews)
+    sum = 0
+    
   end
 
   def new
