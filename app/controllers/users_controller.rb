@@ -13,7 +13,8 @@ class UsersController < ApplicationController
       age: params[:age],
       user_name: params[:user_name],
       password: params[:password],
-      password_confirmation: params[:password_confirmation]
+      password_confirmation: params[:password_confirmation],
+      avatar: params[:avatar]
     )
     user.save
     redirect_to '/login'
@@ -28,9 +29,9 @@ class UsersController < ApplicationController
       first_name: params[:first_name],
       last_name: params[:last_name],
       email: params[:email],
-      age: params[:age]
+      avatar: params[:avatar]
     )
-    flash[:success] = "Review successfully updated!"
+    flash[:success] = "Successfully updated!"
     redirect_to "/"
   end
 
