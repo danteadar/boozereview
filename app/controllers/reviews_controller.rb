@@ -11,6 +11,7 @@ class ReviewsController < ApplicationController
   end
 
   def show
+    @beer = Unirest.get("http://api.brewerydb.com/v2/beer/#{api_beer_id}/?key=#{ENV['BREWERYDB_API_KEY']}&withBreweries=Y").body["data"]
     @reviews = Review.where(api_beer_id: @beer.id)
   end
 

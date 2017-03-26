@@ -18,7 +18,7 @@
 
     <div class="container">
       <div ng-repeat="beer in beers | filter: beerFilter">
-        <p data-toggle="modal" data-target="#beer{{$index}}">{{ beer.name }} - {{ beer.style.category.name }} <br> {{ beer.breweries[0].name }}</p>
+        <p data-toggle="modal" data-target="#beer{{$index}}" ng-click="getReviews(beer.id)">{{ beer.name }} - {{ beer.style.category.name }} <br> {{ beer.breweries[0].name }}</p>
         <div class="modal fade" id="beer{{$index}}" role="dialog">
           <div class="modal-dialog">
           
@@ -54,10 +54,10 @@
                   <%= label_tag :review %>
                   <%= text_area_tag :review %>
                 </div>
-                <div>
+                <!-- <div>
                   <%= label_tag :personal %>
                   <%= check_box_tag :personal, true, "personal" %>
-                </div>
+                </div> -->
 
                 <%= submit_tag "Submit" %>
 <!--                 <button type="button" class="btn btn-default" ></button>
@@ -67,9 +67,10 @@
               </div>
 
               <div class="modal-footer">
-                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-              </div>
+                  <div ng-repeat="review in reviews | filter: reviewFilter">
+                  {{review.review}}
             </div>
+            <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
             
           </div>
         </div>
