@@ -9,7 +9,7 @@
       $http.get("/api/v1/reviews.json").then(function(response) {
         $scope.reviews = response.data;
       });
-      $http.get("http://api.brewerydb.com/v2/beers/?key="+"<%=ENV['BREWERYDB_API_KEY']%>"+"&withBreweries=Y").then(function(response) {
+      $http.get("https://api.brewerydb.com/v2/beers/?key="+"<%=ENV['BREWERYDB_API_KEY']%>"+"&withBreweries=Y").then(function(response) {
         $scope.beers = response.data.data;
         $scope.beerCount = $scope.beers.length
 
@@ -18,7 +18,7 @@
 
     $scope.apiSearch = function(keyword) {
       // console.log("cat");  lookup ng-if cat example
-      $http.get("http://api.brewerydb.com/v2/beers/?key="+"<%=ENV['BREWERYDB_API_KEY']%>"+"&withBreweries=Y"+"&name=*"+keyword+"*").then(function(response) {
+      $http.get("https://api.brewerydb.com/v2/beers/?key="+"<%=ENV['BREWERYDB_API_KEY']%>"+"&withBreweries=Y"+"&name=*"+keyword+"*").then(function(response) {
         $scope.beers = response.data.data;
         $scope.beerCount = $scope.beers.length
       });
@@ -31,7 +31,7 @@
     $scope.findByApiId = function(apiBeerId) {
       console.log(apiBeerId);
 
-      $http.get("http://api.brewerydb.com/v2/beer/"+apiBeerId+"/?key="+"<%=ENV['BREWERYDB_API_KEY']%>&withBreweries=Y").then(function(response) {
+      $http.get("https://api.brewerydb.com/v2/beer/"+apiBeerId+"/?key="+"<%=ENV['BREWERYDB_API_KEY']%>&withBreweries=Y").then(function(response) {
         $scope.beerReviewed = response.data.data;
       });
     };
