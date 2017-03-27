@@ -5,3 +5,6 @@ json.array! @reviews do |review|
   json.review review.review
   json.api_beer_id review.api_beer_id
 end
+
+
+
