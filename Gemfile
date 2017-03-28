@@ -36,6 +36,8 @@ gem 'faker'
 gem 'bootstrap-sass', '~> 3.3.6'
 gem 'unirest'
 gem "paperclip", "~> 4.3"
+gem 'aws-sdk', '~> 2'
+
 
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
