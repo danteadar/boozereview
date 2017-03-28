@@ -23,6 +23,7 @@ Rails.application.routes.draw do
       resources :reviews
       get "/beers" => "beers#index"
       get "/beers/:name" => "beers#find_by_name"
+      # get "/reviews/:api_beer_id" => "reviews#find_by_name"
 
     end
   end

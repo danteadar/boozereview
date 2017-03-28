@@ -14,11 +14,9 @@
     <button ng-click="findByApiId(apiBeerId)">Search api id</button><br><br>
     <p>{{ beerReviewed }}</p> -->
 
-
-
     <div class="container">
       <div ng-repeat="beer in beers | filter: beerFilter">
-        <p data-toggle="modal" data-target="#beer{{$index}}" ng-click="getReviews(beer.id)">{{ beer.name }} - {{ beer.style.category.name }} <br> {{ beer.brewery }}</p>
+        <p data-toggle="modal" data-target="#beer{{$index}}" ng-click="getReviews(beer.api_beer_id)">{{ beer.name }} - {{ beer.style.category.name }} <br> {{ beer.brewery }}</p>
         <div class="modal fade" id="beer{{$index}}" role="dialog">
           <div class="modal-dialog">
           
@@ -26,7 +24,7 @@
             <div class="modal-content">
               <div class="modal-header">
                 <button type="button" class="close" data-dismiss="modal">&times;</button>
-                <h4 class="modal-title">{{ beer.name }}</h4>
+                <h4 class="modal-title">{{ beer.name }} - {{ beer.style.category.name }}</h4>
                 <p>{{ beer.brewery }}</p>
               </div>
               <div class="modal-body">
@@ -62,15 +60,17 @@
                 <%= submit_tag "Submit" %> <br><br>
 <!--                 <button type="button" class="btn btn-default" ></button>
  -->
-                
-              <% end %>
+                <% end %>
+            
 
               Previous Reviews:
-                  <div ng-repeat="review in reviews | filter: reviewFilter">
+                  <div ng-repeat="review in reviews">
                   Rating: {{review.rating}} <br>
                   Review: {{review.review}} <br><br>
                   </div>
               </div>
+
+
 
               <div class="modal-footer">
               

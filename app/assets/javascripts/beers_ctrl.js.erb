@@ -7,7 +7,7 @@
     $scope.setup = function() {
       // console.log("cat");
       $http.get("/api/v1/reviews.json").then(function(response) {
-        $scope.reviews = response['data'];
+        $scope.reviews = response.data;
         console.log($scope.reviews);
 
       });
