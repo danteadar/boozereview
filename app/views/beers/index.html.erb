@@ -18,7 +18,7 @@
 
     <div class="container">
       <div ng-repeat="beer in beers | filter: beerFilter">
-        <p data-toggle="modal" data-target="#beer{{$index}}" ng-click="getReviews(beer.id)">{{ beer.name }} - {{ beer.style }} <br> {{ beer.brewery }}</p>
+        <p data-toggle="modal" data-target="#beer{{$index}}" ng-click="getReviews(beer.id)">{{ beer.name }} - {{ beer.style.category.name }} <br> {{ beer.brewery }}</p>
         <div class="modal fade" id="beer{{$index}}" role="dialog">
           <div class="modal-dialog">
           
@@ -32,7 +32,7 @@
               <div class="modal-body">
                 <p>ABV: {{ beer.abv }} <br>
                 IBU: {{ beer.ibu }} <br>
-                Glass: {{ beer.glass }} <br>
+                Glass: {{ beer.glass.name }} <br>
                 <!-- Organic: {{ beer.isOrganic }}</p> -->
 
                 <p> {{ beer.description }} </p>

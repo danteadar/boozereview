@@ -8,25 +8,26 @@
       // console.log("cat");
       $http.get("/api/v1/reviews.json").then(function(response) {
         $scope.reviews = response['data'];
+        console.log($scope.reviews);
+
       });
       $http.get("/api/v1/beers.json").then(function(response) {
         $scope.beers = response['data'];
-        $scope.beerCount = $scope.beers.length
-        console.log($scope.beers)
-
+        $scope.beerCount = $scope.beers.length;
+        console.log($scope.beers);
 
       }); 
     };
 
     $scope.apiSearch = function(keyword) {
       // console.log("cat");  lookup ng-if cat example
-      $http.get("/api/v1/beers.json"+"?name=*"+keyword+"*").then(function(response) {
-        $scope.beers = response['data'];
+      $http.get("/api/v1/beers/"+keyword).then(function(response) {
+        $scope.beers = response.data;
         $scope.beerCount = $scope.beers.length
       });
     };
     $scope.getReviews = function(apiBeerId) {
-        $http.get("/api/v1/reviews.json?api_beer_id=" + apiBeerId).then(function(response) {
+        $http.get("/api/v1/reviews.json?api_beer_id="+apiBeerId).then(function(response) {
         $scope.reviews = response['data'];
       });
     }
