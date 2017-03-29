@@ -2,6 +2,30 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
+.post-meta {
+  color: #ACA885 !important;
+}
+
+h1 {
+  
+  margin: 30px 0px 0px 0px;
+}
+h2 {
+  
+  margin: 0px;
+}
+h3 {
+  
+  margin: 0px;
+}
+p {
+  
+  margin: 0px;
+}
+
+.container {
+  margin: 0px !important;
+}
 
 @media (min-width: 1200px) {
   .container {
@@ -16,7 +40,7 @@
   text-align: center;
   margin-top: -50px;
   padding-top: 20px;
-  color: white;
+  color: #ACA885;
   font-family: 'Open Sans','Helvetica Neue',Helvetica,Arial,sans-serif;
   font-size: 16px;
 
@@ -32,10 +56,21 @@
 }
 
 div h2:hover {
-  color: gold;
+  color: #FFFBBD;
   cursor: pointer;
 }
 
-.modal-backdrop {
-    opacity:0.5 !important;
+.modal {
+    opacity:0.95;
 }
+
+.video-section .pattern-overlay {
+background-color: rgba(71, 71, 71, 0.59);
+min-height: 1200px; 
+/* Incase of overlay problems just increase the min-height*/
+}
+
+
+.video-section .buttonBar{display:none;}
+.player {font-size: 1px;}
+

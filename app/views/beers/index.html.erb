@@ -21,12 +21,23 @@
         Search for a beer to review: <br> <input ng-model="keyword" ng-keyup="$event.keyCode == 13 && apiSearch(keyword)" placeholder="This is where your search begins">
            <button ng-click="apiSearch(keyword)">Search</button><br><br>
         </div>
+
+        <!-- Warming Up -->
+        <script src="http://pupunzi.com/mb.components/mb.YTPlayer/demo/inc/jquery.mb.YTPlayer.js"></script>
+
+        <!--Video Section-->
+        <section class="content-section video-section">
+          <div class="pattern-overlay">
+          <a id="bgndVideo" class="player" data-property="{videoURL:'https://www.youtube.com/watch?v=DK3w8rNY09k',containment:'.video-section', quality:'large', autoPlay:true, mute:true, opacity:1}">bg</a>
+            
+                
+             
         <div class="container">
             <div class="row">
                 <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
                 <h1>The Beers:</h1>
                 <hr>
-                  <div ng-repeat="beer in beers | filter: beerFilter">
+                  <div ng-repeat="beer in beers | filter: beerFilter | limitTo:8">
                     <div class="post-preview">
                       <h2 class="post-title" data-toggle="modal" data-target="#beer{{$index}}" ng-click="getReviews(beer.api_beer_id)">
                         {{ beer.name }}
@@ -98,6 +109,8 @@
             </div>
         </div>
 
-    <hr>
-
+             
+          </div>
+        </section>
+        <!--Video Section Ends Here-->
 

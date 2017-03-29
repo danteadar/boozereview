@@ -16,3 +16,9 @@
 //= require angular
 //= require app
 //= require_tree .
+
+$(document).ready(function () {
+
+    $(".player").mb_YTPlayer();
+
+});
