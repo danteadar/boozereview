@@ -1,3 +1,41 @@
 // Place all the styles related to the Beers controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+
+@media (min-width: 1200px) {
+  .container {
+    width: 100%;
+    padding: 0px;
+    text-align: center;
+  }
+}
+
+.searchfield {
+  background-color: black;
+  text-align: center;
+  margin-top: -50px;
+  padding-top: 20px;
+  color: white;
+  font-family: 'Open Sans','Helvetica Neue',Helvetica,Arial,sans-serif;
+  font-size: 16px;
+
+}
+
+.searchfield button {
+  color: black;
+}
+
+.searchfield input {
+  width: 30%;
+  color: black;
+}
+
+div h2:hover {
+  color: gold;
+  cursor: pointer;
+}
+
+.modal-backdrop {
+    opacity:0.5 !important;
+}
