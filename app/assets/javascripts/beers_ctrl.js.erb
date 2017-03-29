@@ -8,13 +8,13 @@
       // console.log("cat");
       $http.get("/api/v1/reviews.json").then(function(response) {
         $scope.reviews = response.data;
-        console.log($scope.reviews);
+        // console.log($scope.reviews);
 
       });
       $http.get("/api/v1/beers.json").then(function(response) {
         $scope.beers = response['data'];
         $scope.beerCount = $scope.beers.length;
-        console.log($scope.beers);
+        // console.log($scope.beers);
 
       }); 
     };
@@ -32,7 +32,7 @@
       });
     }
     $scope.findByApiId = function(apiBeerId) {
-      console.log(apiBeerId);
+      // console.log(apiBeerId);
 
       $http.get("http://api.brewerydb.com/v2/beer/"+apiBeerId+"/?key="+"<%=ENV['BREWERYDB_API_KEY']%>&withBreweries=Y").then(function(response) {
         $scope.beerReviewed = response.data.data;

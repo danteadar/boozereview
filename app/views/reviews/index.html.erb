@@ -1,14 +1,17 @@
 <h1>All Reviews:</h1>
 
 <div ng-app="app">
-  <div ng-controller="reviewsCtrl">
-    <% @reviews.each do |review| %>
-      <% beer = review.beer %>
-      Beer: <%= beer['name'] %> - Rating: <%= review.rating %><br>
-      Abv: <%= beer['abv'] %> <br>
-      Ibu: <%= beer['ibu'] %> <br>
-      Review: <%= review.review %> <br> <br> <br>
-    <% end %>
+  <div ng-controller="beersCtrl" ng-init="setup()">
+    <div ng-repeat="review in reviews">
+      Beer: {{ review.beer }} - Rating: {{ review.rating }}<br>
+      Brewery: {{ review.brewery }} <br>
+      Abv: {{ review.abv }} <br>
+      Ibu: {{ review.ibu }} <br>
+      Review: {{ review.review }} <br> <br> <br> 
+
+
+    </div>
+    
   </div>
 </div>
   
