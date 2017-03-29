@@ -1,18 +1,30 @@
-<h1>Edit Info:</h1>
+<div class="show">
+  <div class="site-wrapper-inner">
+  <br><br><br><br><br>
+    <h1>Edit Info:</h1> <br><br>
 
-<%= form_tag "/users/#{current_user.id}/", multipart: true, method: :patch do  %>
-  <div>
-    <%= label_tag :first_name %>
-    <%= text_field_tag :first_name, current_user.first_name %>
+    <%= form_tag "/users/#{current_user.id}/", multipart: true, method: :patch do  %>
+      <div>
+        <%= label_tag :first_name %>
+        <%= text_field_tag :first_name, current_user.first_name %>
+      </div>
+      <br>
+      <div>
+        <%= label_tag :last_name %>
+        <%= text_field_tag :last_name, current_user.last_name %>
+      </div>
+      <br>
+      <div>
+        <%= label_tag :email %> <span>      </span>
+        <%= email_field_tag :email, current_user.email %>
+      </div> <br><br>
+     
+      <%= submit_tag "Submit" %>
+    <% end %>
+
+    <br><br><br><br><br><br>
+    <br><br><br><br><br><br>
   </div>
-  <div>
-    <%= label_tag :last_name %>
-    <%= text_field_tag :last_name, current_user.last_name %>
-  </div>
-  <div>
-    <%= label_tag :email %>
-    <%= email_field_tag :email, current_user.email %>
-  </div>
- 
-  <%= submit_tag "Submit" %>
-<% end %>
+</div>
+
+          
