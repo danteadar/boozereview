@@ -48,7 +48,7 @@
                 </select>
                 </div>
                 <div>
-                <input type="hidden" name="api_beer_id" value="{{ beer.id }}">
+                <input type="hidden" name="api_beer_id" value="{{ beer.api_beer_id }}">
                   <%= label_tag :review %>
                   <%= text_area_tag :review %>
                 </div>
@@ -63,8 +63,9 @@
                 <% end %>
             
 
-              Previous Reviews:
+              <h4>Previous Reviews:</h4> 
                   <div ng-repeat="review in reviews">
+                  Reviewed by: {{review.username}} <br>
                   Rating: {{review.rating}} <br>
                   Review: {{review.review}} <br><br>
                   </div>
