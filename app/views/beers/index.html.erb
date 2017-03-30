@@ -23,21 +23,23 @@
         </div>
 
         <!-- Warming Up -->
-        <script src="http://pupunzi.com/mb.components/mb.YTPlayer/demo/inc/jquery.mb.YTPlayer.js"></script>
+        <!-- <script src="http://pupunzi.com/mb.components/mb.YTPlayer/demo/inc/jquery.mb.YTPlayer.js"></script> -->
 
         <!--Video Section-->
-        <section class="content-section video-section">
-          <div class="pattern-overlay">
-          <a id="bgndVideo" class="player" data-property="{videoURL:'https://www.youtube.com/watch?v=DK3w8rNY09k',containment:'.video-section', quality:'large', autoPlay:true, mute:true, opacity:1}">bg</a>
+        <!-- <section class="content-section video-section"> -->
+        <!--   <div class="pattern-overlay">
+          <a id="bgndVideo" class="player" data-property="{videoURL:'https://www.youtube.com/watch?v=DK3w8rNY09k',containment:'.video-section', quality:'large', autoPlay:true, mute:true, opacity:1}"></a> -->
             
                 
              
         <div class="container">
             <div class="row">
                 <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                <div class="show">
+                  <div class="site-wrapper-inner">
                 <h1>The Beers:</h1>
                 <hr>
-                  <div ng-repeat="beer in beers | filter: beerFilter | limitTo:8">
+                  <div ng-repeat="beer in beers | filter: beerFilter">
                     <div class="post-preview">
                       <h2 class="post-title" data-toggle="modal" data-target="#beer{{$index}}" ng-click="getReviews(beer.api_beer_id)">
                         {{ beer.name }}
@@ -63,7 +65,7 @@
                                   <div class="modal-body">
                                     <p>ABV: {{ beer.abv }} <br>
                                     IBU: {{ beer.ibu }} <br>
-                                    Glass: {{ beer.glass.name }} <br>
+                                    Glass: {{ beer.glass.name }} <br></p>
                                     <!-- Organic: {{ beer.isOrganic }}</p> -->
 
                                     <p> {{ beer.description }} </p>
@@ -111,9 +113,9 @@
                 </div>
             </div>
         </div>
-
+        </div>
+        </div>
              
-          </div>
-        </section>
+        
         <!--Video Section Ends Here-->
 
