@@ -10,6 +10,7 @@ Rails.application.routes.draw do
   post 'users/' => 'users#create'
   get 'users/:id/edit' => 'users#edit'
   patch 'users/:id' => 'users#update'
+  get '/contact' => 'users#contact'
 
   root to: "beers#index"
   resources :reviews
