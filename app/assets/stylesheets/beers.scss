@@ -2,7 +2,7 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 body {
-  background-color: black;
+  background-color: #180D01;
   font-family: 'Lora' !important;
 }
 .post-meta {
@@ -44,7 +44,7 @@ p {
 }
 
 .searchfield {
-  background-color: black;
+  background-color: #180D01;
   text-align: center;
   margin-top: -50px;
   padding-top: 20px;
@@ -66,9 +66,6 @@ p {
 div h2:hover {
   color: #FFFBBD;
   cursor: pointer;
-}
-
-.modal {
 }
 
 
@@ -97,8 +94,8 @@ min-height: 1220px;
   margin-top: -30px;
   
   height: 100%;
-  background-color: black;
-  color: black;
+  background-color: #180D01;
+  color: #180D01;
   text-align: center;
   text-shadow: 0 1px 3px rgba(0,0,0,.5);
  
@@ -113,5 +110,10 @@ min-height: 1220px;
 
 .border {
   text-shadow: 0 1px 3px rgba(0, 0, 0, 0.5);
+}
+
+.modal {
+  // background-color: rgba(240, 248, 255, 0.8);
+  color: #180D01;
 }
 
