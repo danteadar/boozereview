@@ -5,9 +5,10 @@
             <div class="row">
                 <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
                     <div class="site-heading">
-                        <h1>Beer Review</h1>
+                        <span  class="border"> <h1>Beer Review</h1>
                         <hr class="small">
                         <span class="subheading">A place to make observations about the beers you drink</span>
+                        </span>
                     </div>
                 </div>
             </div>
@@ -60,15 +61,15 @@
                                   <div class="modal-header">
                                     <button type="button" class="close" data-dismiss="modal">&times;</button>
                                     <h4 class="modal-title">{{ beer.name }} - {{ beer.style.category.name }}</h4>
-                                    <p>{{ beer.brewery }}</p>
+                                    <p class="border">{{ beer.brewery }}</p>
                                   </div>
                                   <div class="modal-body">
-                                    <p>ABV: {{ beer.abv }} <br>
+                                    <p class="border">ABV: {{ beer.abv }} <br>
                                     IBU: {{ beer.ibu }} <br>
                                     Glass: {{ beer.glass.name }} <br></p>
                                     <!-- Organic: {{ beer.isOrganic }}</p> -->
 
-                                    <p> {{ beer.description }} </p>
+                                    <p class="border"> {{ beer.description }} </p>
                                   </div>
                                   <hr>
                                 <%if current_user %>
