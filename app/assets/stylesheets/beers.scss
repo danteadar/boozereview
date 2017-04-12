@@ -109,11 +109,16 @@ min-height: 1220px;
 }
 
 .border {
-  text-shadow: 0 1px 3px rgba(0, 0, 0, 0.5);
+  // text-shadow: 0 1px 3px rgba(0, 0, 0, 0.5);
+  text-shadow: none;
 }
 
 .modal {
   // background-color: rgba(240, 248, 255, 0.8);
   color: #180D01;
+}
+
+.modal-content {
+  background-color: #E4DBD1;
 }
 

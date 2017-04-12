@@ -60,8 +60,10 @@
                                 <div class="modal-content">
                                   <div class="modal-header">
                                     <button type="button" class="close" data-dismiss="modal">&times;</button>
-                                    <h4 class="modal-title">{{ beer.name }} - {{ beer.style.category.name }}</h4>
-                                    <p class="border">{{ beer.brewery }}</p>
+                                      <div class="border">
+                                      <h4 class="modal-title">{{ beer.name }} - {{ beer.style.category.name }}</h4>
+                                      <p class="border">{{ beer.brewery }}</p>
+                                      </div>
                                   </div>
                                   <div class="modal-body">
                                     <p class="border">ABV: {{ beer.abv }} <br>
@@ -75,7 +77,7 @@
                                 <%if current_user %>
                                   <div class="modal-body">
                                   <%= form_tag "/reviews/", method: :post do  %>
-                                    <div>Rating: 
+                                    <div class="border">Rating: 
                                     <select name="rating">
                                       <option value="1">1</option>
                                       <option value="2">2</option>
@@ -85,7 +87,7 @@
                                     </select>
                                     </div>
                                     <br>
-                                    <div>
+                                    <div class="border">
                                     <input type="hidden" name="api_beer_id" value="{{ beer.api_beer_id }}">
                                       <%= label_tag :review %>:  
                                       <%= text_area_tag :review %> <br> <br>
@@ -97,16 +99,18 @@
                      -->
                                     <% end %>
                                     <% else %>
-                                    <p>Please log in to submit a review</p>
+                                    <p class="border">Please log in to submit a review</p>
                                     <% end %>
                                 <hr>
 
 
-                                  <h4>Previous Reviews:</h4> 
+                                  <h4 class="border">Previous Reviews:</h4> 
                                       <div ng-repeat="review in reviews">
-                                      Reviewed by: {{review.username}} <br>
-                                      Rating: {{review.rating}} <br>
-                                      Review: {{review.review}} <br><br>
+                                        <div class="border">
+                                          Reviewed by: {{review.username}} <br>
+                                          Rating: {{review.rating}} <br>
+                                          Review: {{review.review}} <br><br>
+                                        </div>
                                       </div>
                                   </div>
 
