@@ -17,12 +17,10 @@ h1 {
 }
 h2 {
   text-shadow: 1px 2px 5px rgba(255, 255, 255, 0.5);
-
   margin: 0px;
 }
 h3 {
   text-shadow: 1px 2px 5px rgba(255, 255, 255, 0.5);
-
   margin: 0px;
 }
 p {
@@ -126,3 +124,14 @@ img {
   border-radius: 50px;
 }
 
+a:hover {
+  color: #FFFBBD !important;
+}
+
+.white {
+  color: #999;
+}
+
+.black {
+  color: #000;
+}
