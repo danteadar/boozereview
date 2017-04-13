@@ -43,6 +43,7 @@
                   <div ng-repeat="beer in beers | filter: beerFilter">
                     <div class="post-preview">
                       <h2 class="post-title" data-toggle="modal" data-target="#beer{{$index}}" ng-click="getReviews(beer.api_beer_id)">
+                        <img src="{{ beer.labels.icon }}" alt=""> 
                         {{ beer.name }}
                       </h2>
                       <h3 class="post-subtitle">
@@ -65,10 +66,13 @@
                                       <p class="border">{{ beer.brewery }}</p>
                                       </div>
                                   </div>
-                                  <div class="modal-body">
-                                    <p class="border">ABV: {{ beer.abv }} <br>
+                                  <div class="modal-body" background="{{ beers.brewery_image_url.large }}">
+                                    <p class="border">
+                                    <img src="{{ beer.labels.medium }}" alt=""> <br>
+                                    ABV: {{ beer.abv }} <br>
                                     IBU: {{ beer.ibu }} <br>
-                                    Glass: {{ beer.glass.name }} <br></p>
+                                    Glass: {{ beer.glass.name }} <br>
+                                    </p>
                                     <!-- Organic: {{ beer.isOrganic }}</p> -->
 
                                     <p class="border"> {{ beer.description }} </p>
