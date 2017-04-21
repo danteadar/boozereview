@@ -122,10 +122,16 @@ min-height: 1220px;
 
 img {
   border-radius: 50px;
+  max-width: 80%;
 }
 
 a:hover {
   color: #FFFBBD !important;
+}
+
+.fix-pointer:hover {
+    cursor: pointer !important;
+
 }
 
 .white {
@@ -137,5 +143,6 @@ a:hover {
 }
 
 hr {
-  // border-color: inherit;
+  border-color: inherit;
+  width: 100%
 }
