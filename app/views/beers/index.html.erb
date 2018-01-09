@@ -1,26 +1,29 @@
 <!-- Page Header -->
     <!-- Set your background image for this header on the line below. -->
     <header class="intro-header" style="background-image: url('/img/wayne-nj-Beer-Tap.jpg')">
-        <div class="container" style='margin: 0px; width: 100%'>
-            <div class="row">
-                <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
-                    <div class="site-heading">
-                        <span  class="border"> <h1>Beer Review</h1>
-                        <hr class="small">
-                        <span class="subheading">A place to make observations about the beers you drink</span>
-                        </span>
-                    </div>
-                </div>
+      <div class="container" style='margin: 0px; width: 100%'>
+        <div class="row">
+          <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+            <div class="site-heading">
+              <span  class="border"> <h1>Beer Review</h1>
+              <hr class="small">
+              <span class="subheading">A place to make observations about the beers you drink</span>
+              </span>
             </div>
+          </div>
         </div>
+      </div>
     </header>
 
     <!-- Main Content -->
     <div ng-app="app">
       <div ng-controller="beersCtrl" ng-init="setup()">
         <div class="searchfield">
-        Search for a beer to review: <br> <input ng-model="keyword" ng-keyup="$event.keyCode == 13 && apiSearch(keyword)" placeholder="This is where your search begins">
-           <button ng-click="apiSearch(keyword)">Search</button><br><br>
+
+          Search for a beer to review: <br> <input ng-model="keyword" ng-keyup="$event.keyCode == 13 && apiSearch(keyword)" placeholder="This is where your search begins">
+
+          <button ng-click="apiSearch(keyword)">Search</button><br><br>
+
         </div>
 
         <!-- Warming Up -->
@@ -34,103 +37,95 @@
                 
              
         <div class="container">
-            <div class="row">
-                <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
-                <div class="show">
-                  <div class="site-wrapper-inner">
-                <h1>The Beers:</h1>
-                <hr>
-                  <div ng-repeat="beer in beers | filter: beerFilter">
-                    <div class="post-preview">
-                      <h2 class="post-title" data-toggle="modal" data-target="#beer{{$index}}" ng-click="getReviews(beer.api_beer_id)">
-                        <img src="{{ beer.labels.icon }}" alt=""> 
-                        {{ beer.name }}
-                      </h2>
-                      <h3 class="post-subtitle">
-                      {{ beer.brewery }}
-                      </h3>
-                      <p class="post-meta">
-                        {{ beer.style.category.name }}
-                      </p>
-                    </div>
-                    <hr>
-                    <div class="modal fade" id="beer{{$index}}" role="dialog">
-                              <div class="modal-dialog">
+          <div class="row">
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+              <div class="show">
+                <div class="site-wrapper-inner">
+                  <h1>The Beers:</h1>
+                  <hr>
+                    <div ng-repeat="beer in beers | filter: beerFilter | limitTo: 20">
+                      <div class="post-preview">
+
+                        <h2 class="post-title" data-toggle="modal" data-target="#beer{{$index}}" ng-click="getReviews(beer.api_beer_id)"> <img src="{{ beer.labels.icon }}" alt=""> {{ beer.name }} </h2>
+                        <h3 class="post-subtitle"> {{ beer.brewery }} </h3>
+                        <p class="post-meta"> {{ beer.style.category.name }} </p>
+
+                      </div>
+                        <hr>
+                      <div class="modal fade" id="beer{{$index}}" role="dialog">
+                        <div class="modal-dialog">
+                          <!-- Modal content-->
+                          <div class="modal-content">
+                            <div class="modal-header">
+                              <button type="button" class="close" data-dismiss="modal">&times;</button>
+                              <a href="{{ beer.brewery_url }}" class="fix-pointer"> <img src="{{ beer.brewery_image_url.medium }}" alt=""> </a>
+                                
+                            </div>
+                            <div class="modal-body">
                               
-                                <!-- Modal content-->
-                                <div class="modal-content">
-                                  <div class="modal-header">
-                                    <button type="button" class="close" data-dismiss="modal">&times;</button>
-                                    <a href="{{ beer.brewery_url }}" class="fix-pointer"> <img src="{{ beer.brewery_image_url.medium }}" alt=""> </a>
-                                      
-                                  </div>
-                                  <div class="modal-body">
-                                    
-                                    <div class="border">
+                              <div class="border">
 
-                                    <h4 class="modal-title">{{ beer.name }} - {{ beer.style.category.name }}</h4>
-                                    <p class="border">{{ beer.brewery }}</p>
-                                    </div>
-                                    <p class="border">
-                                    <img src="{{ beer.labels.medium }}" alt=""> <br>
-                                    ABV: {{ beer.abv }} <br>
-                                    IBU: {{ beer.ibu }} <br>
-                                    Glass: {{ beer.glass.name }} <br>
-                                    </p>
-                                    <!-- Organic: {{ beer.isOrganic }}</p> -->
+                                <h4 class="modal-title">{{ beer.name }} - {{ beer.style.category.name }}</h4>
+                                <p class="border">{{ beer.brewery }}</p>
+                              </div>
+                              <p class="border">
+                              <img src="{{ beer.labels.medium }}" alt=""> <br>
+                              ABV: {{ beer.abv }} <br>
+                              IBU: {{ beer.ibu }} <br>
+                              Glass: {{ beer.glass.name }} <br>
+                              </p>
+                              <!-- Organic: {{ beer.isOrganic }}</p> -->
+                              <p class="border"> {{ beer.description }} </p>
+                              <hr>
 
-                                    <p class="border"> {{ beer.description }} </p>
-                                    <hr>
+                            </div>
+                          <%if current_user %>
+                            <div class="modal-body">
+                              <%= form_tag "/reviews/", method: :post do  %>
+                              <div class="border">Rating: 
+                                <select name="rating">
+                                  <option value="1">1</option>
+                                  <option value="2">2</option>
+                                  <option value="3">3</option>
+                                  <option value="4">4</option>
+                                  <option value="5">5</option>
+                                </select>
+                              </div>
+                              <br>
+                              <div class="border">
+                              <input type="hidden" name="api_beer_id" value="{{ beer.api_beer_id }}">
+                                <%= text_area_tag :review, nil, :placeholder => "Write your review here...", :size => "50x5" %> <br> <br>
+                              </div>
+                              
 
-                                  </div>
-                                <%if current_user %>
-                                  <div class="modal-body">
-                                  <%= form_tag "/reviews/", method: :post do  %>
-                                    <div class="border">Rating: 
-                                    <select name="rating">
-                                      <option value="1">1</option>
-                                      <option value="2">2</option>
-                                      <option value="3">3</option>
-                                      <option value="4">4</option>
-                                      <option value="5">5</option>
-                                    </select>
-                                    </div>
-                                    <br>
-                                    <div class="border">
-                                    <input type="hidden" name="api_beer_id" value="{{ beer.api_beer_id }}">
-                                      <%= label_tag :review %>:  
-                                      <%= text_area_tag :review %> <br> <br>
-                                    </div>
-                                    
-
-                                    <%= submit_tag "Submit" %> <br><br>
-                    <!--                 <button type="button" class="btn btn-default" ></button>
-                     -->
-                                    <% end %>
-                                    <% else %>
-                                    <p class="border">Please log in to submit a review</p>
-                                    <% end %>
-                                <hr>
+                              <%= submit_tag "Submit" %> <br><br>
+              <!--                 <button type="button" class="btn btn-default" ></button>
+               -->
+                              <% end %>
+                              <% else %>
+                              <p class="border">Please log in to submit a review</p>
+                              <% end %>
+                          <hr>
 
 
-                                  <h4 class="border">Previous Reviews:</h4> 
-                                      <div ng-repeat="review in reviews">
-                                        <div class="border">
-                                          <!-- <p>&#x1F37A; &#x1F37A; &#x1F37A;</p> -->
-                                          <p>. . .</p>
-                                          Reviewed by: {{review.username}} <br>
-                                          Rating: {{review.rating}} <br>
-                                          Review: {{review.review}} 
-                                        </div>
-                                      </div>
-                                  </div>
+                            <h4 class="border">Previous Reviews:</h4> 
+                              <div ng-repeat="review in reviews">
+                                <div class="border">
+                                  <!-- <p>&#x1F37A; &#x1F37A; &#x1F37A;</p> -->
+                                  <p>. . .</p>
+                                  Reviewed by: {{review.username}} <br>
+                                  Rating: {{review.rating}} <br>
+                                  Review: {{review.review}} 
+                                </div>
+                              </div>
+                            </div>
 
                     
+                          </div>
+                        </div>
+                      </div>
+                    </div>
                 </div>
-            </div>
-        </div>
-        </div>
-        </div>
              
         
         <!--Video Section Ends Here-->
