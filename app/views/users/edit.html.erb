@@ -5,18 +5,15 @@
 
     <%= form_tag "/users/#{current_user.id}/", multipart: true, method: :patch do  %>
       <div>
-        <%= label_tag :first_name %>
-        <%= text_field_tag :first_name, current_user.first_name %>
+        <%= text_field_tag :first_name, current_user.first_name, :placeholder => "First Name" %>
       </div>
       <br>
       <div>
-        <%= label_tag :last_name %>
-        <%= text_field_tag :last_name, current_user.last_name %>
+        <%= text_field_tag :last_name, current_user.last_name, :placeholder => "Last Name" %>
       </div>
       <br>
       <div>
-        <%= label_tag :email %> <span>      </span>
-        <%= email_field_tag :email, current_user.email %>
+        <%= email_field_tag :email, current_user.email, :placeholder => "Email" %>
       </div> <br><br>
      
       <%= submit_tag "Submit" %>
