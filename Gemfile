@@ -37,6 +37,7 @@ gem 'bootstrap-sass', '~> 3.3.6'
 gem 'unirest'
 gem "paperclip", "~> 4.3"
 gem 'aws-sdk', '~> 2'
+gem 'omniauth-google-oauth2'
 
 
 # Use Capistrano for deployment
