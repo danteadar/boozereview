@@ -12,18 +12,25 @@ Rails.application.routes.draw do
   patch 'users/:id' => 'users#update'
   get '/contact' => 'users#contact'
 
-  root to: "beers#index"
+  root to: 'beers#index'
   resources :reviews
 
-  get "/login" => "sessions#new"
-  post "/login" => "sessions#create"
-  get "/logout" => "sessions#destroy"
+  # omniauth
+  get 'auth/:provider/callback' => 'sessions#create'
+  get 'auth/failure' => redirect('/')
+  get 'signout', to: 'sessions#destroy', as: 'signout'
+
+  resources :sessions, only: [:create, :destroy]
+  
+  # get '/login' => 'sessions#new'
+  # post '/login' => 'sessions#create'
+  #get '/logout' => 'sessions#destroy'
 
   namespace :api do
     namespace :v1 do
       resources :reviews
-      get "/beers" => "beers#index"
-      get "/beers/:name" => "beers#find_by_name"
+      get '/beers' => 'beers#index'
+      get '/beers/:name' => 'beers#find_by_name'
       # get "/reviews/:api_beer_id" => "reviews#find_by_name"
 
     end

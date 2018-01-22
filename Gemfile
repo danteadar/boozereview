@@ -35,7 +35,7 @@ gem 'bcrypt', '~> 3.1.7'
 gem 'faker'
 gem 'bootstrap-sass', '~> 3.3.6'
 gem 'unirest'
-gem "paperclip", "~> 4.3"
+gem "paperclip", "~> 5.1.0"
 gem 'aws-sdk', '~> 2'
 gem 'omniauth-google-oauth2'
 
