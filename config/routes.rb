@@ -20,11 +20,11 @@ Rails.application.routes.draw do
   get 'auth/failure' => redirect('/')
   get 'signout', to: 'sessions#destroy', as: 'signout'
 
-  resources :sessions, only: [:create, :destroy]
+  # resources :sessions, only: [:create, :destroy]
   
-  # get '/login' => 'sessions#new'
-  # post '/login' => 'sessions#create'
-  #get '/logout' => 'sessions#destroy'
+  get '/login' => 'sessions#new'
+  post '/login' => 'sessions#create'
+  get '/logout' => 'sessions#destroy'
 
   namespace :api do
     namespace :v1 do
